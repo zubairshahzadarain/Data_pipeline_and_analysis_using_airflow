@@ -84,7 +84,7 @@ on t1.user_info_table_id= t2.id
 join Sales_info  st 
 on st.customer_id=t2.id""", con=engine)
         agregat_sale_user__weather_data['order_date'] = pd.to_datetime(agregat_sale_user__weather_data['order_date'])
-        agregat_sale_user__weather_data.to_sql('merged_sale_user__weather_data', con=engine, if_exists='replace', index=False)
+        agregat_sale_user__weather_data.to_sql('agregat_sale_user__weather_data', con=engine, if_exists='replace', index=False)
 
         # performing further calculations
          # Calculate total sales amount per customer  and  save  to DB
