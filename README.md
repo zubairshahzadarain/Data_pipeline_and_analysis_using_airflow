@@ -1,6 +1,6 @@
 # AIQ Sales Data Pipeline
 
-As  i have done these things in our task 
+I have completed the following tasks in our project
 * Creating pipeline that utilizes 
    * Sales data CSV file
    * Data Transformation (JSONPlaceholder API - /users)
