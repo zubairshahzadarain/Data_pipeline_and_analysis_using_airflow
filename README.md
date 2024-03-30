@@ -67,6 +67,10 @@ Before getting started, ensure you have the following installed on your system:
 and base on docker compose file , files (like python pipline code and csv file)  from dags1 folder   will   be mount to airflow container .
 and after sometime airflow server start on   http://localhost:5001/
 it will be like this 
+#### Runing Container
+  ![Screenshot 2024-03-30 at 5 30 37 AM](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/runing_containers.png)
+
+#### airflow dashboard
 
 ![Screenshot 2024-03-30 at 5 30 37 AM](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Pipelines.png)
 #### Login 
