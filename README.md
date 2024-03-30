@@ -58,7 +58,7 @@ and base on docker compose file , files   from dags1  from will   be mount to ai
 and after sometime airflow server start on   http://localhost:5001/
 it will be like this 
 
-![Screenshot 2024-03-30 at 5 30 37 AM](https://github.com/zubairshahzadarain/aiq_test/assets/32112656/c5d3276f-b432-409e-91f1-12223dad3436)
+![Screenshot 2024-03-30 at 5 30 37 AM](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Pipelines.png)
 #### Login 
 * username:  admin
 * password :  admin@123
@@ -66,9 +66,9 @@ it will be like this
 in dag1  folder there is one file named sales_dag.py ..(airflow dag)   this pipeline that  is given in task ..
 i have created dags in this file and schedule  daily bases
 
-![Pipeline_detail_view](https://github.com/zubairshahzadarain/aiq_test/assets/32112656/f23b3a2c-d11f-4378-a291-7bec7b3b7ea1)
+![Pipeline_detail_view](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/pipeline_detail.png)
 
- sales_dag.py
+ dags1/sales_dag_pipeline.py
 ```
 # Function to fetch weather data
 def fetch_weather_data(lat, lng):
@@ -112,7 +112,6 @@ def fetch_customer_data():
         users_response = requests.get("https://jsonplaceholder.typicode.com/users")
         users_data_Res = users_response.json()
         return users_data_Res
-
 def process_data():
     try:
         #db connection 
@@ -137,6 +136,39 @@ def process_data():
         Locattion_info = pd.DataFrame([info for info in Locattion_info_array if info is not None])
         print(Locattion_info)
         Locattion_info.to_sql(name='user_Location_info', con=engine, index=False, if_exists='replace', method='multi', chunksize=1000)
+                time.sleep(2)
+        #performing the  agregation and fixing columns datatype ............Data Manipulation and Aggregations
+        agregat_sale_user__weather_data= pd.read_sql("""SELECT  st.*,t1.*,t2.*
+FROM  user_Location_info  as t1 RIGHT join user_info as t2
+on t1.user_info_table_id= t2.id
+join Sales_info  st 
+on st.customer_id=t2.id""", con=engine)
+        agregat_sale_user__weather_data['order_date'] = pd.to_datetime(agregat_sale_user__weather_data['order_date'])
+        agregat_sale_user__weather_data.to_sql('merged_sale_user__weather_data', con=engine, if_exists='replace', index=False)
+
+        # performing further calculations
+         # Calculate total sales amount per customer  and  save  to DB
+        total_sales_per_customer = agregat_sale_user__weather_data.groupby('name')['price'].sum().reset_index()
+        total_sales_per_customer.to_sql(name='results_total_sales_per_customer', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
+        # the average order quantity per product  and save to db table average_order_quantity_per_product
+        average_order_quantity_per_product = agregat_sale_user__weather_data.groupby('product_id')['quantity'].mean().reset_index()
+        average_order_quantity_per_product.to_sql(name='results_average_order_quantity_per_product', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
+        # Identify the top-selling products  and to db
+        top_selling_products = agregat_sale_user__weather_data.groupby('product_id')['quantity'].sum().nlargest(5)
+        top_selling_products.to_sql(name='results_top_selling_products', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
+        # Identify the top-selling  customers  and save to db
+        top_selling_customers = agregat_sale_user__weather_data.groupby('name')['price'].sum().nlargest(5)
+        top_selling_customers.to_sql(name='results_top_selling_customers', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
+        # Analyze sales trends over order_date  adn save results  to db
+        agregat_sale_user__weather_data['order_date'] = pd.to_datetime(agregat_sale_user__weather_data['order_date'])
+        sales_trends_over_time = agregat_sale_user__weather_data.groupby(agregat_sale_user__weather_data['order_date'].dt.to_period('M'))['price'].sum()
+        sales_trends_over_time.to_sql(name='results_sales_trends_over_time', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
+        # Calculate average sales amount per weather condition  and  save to db
+        average_sales_per_weather = agregat_sale_user__weather_data.groupby('weather_main')['price'].mean().reset_index()
+        average_sales_per_weather.to_sql(name='results_average_sales_per_weather', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
+        # Calculate total sales amount per address.city
+        total_sales_per_address_city = merged_sale_user__weather_data.groupby('address.city')['price'].sum().reset_index()
+        total_sales_per_address_city.to_sql(name='results_total_sales_per_address_city', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
 
         print("Completed")
     except Exception as err:
@@ -171,12 +203,12 @@ tranformation and aggregations or manipulations based on the data.
 * Analyze sales trends over time (e.g., monthly or quarterly sales).
 * Include weather data in the analysis (e.g., average sales amount per weather
 condition).
-![total sales amount per addresscity](https://github.com/zubairshahzadarain/aiq_test/assets/32112656/8121bc43-b193-4873-a8b7-87e72ff5f808)
-![top-selling products](https://github.com/zubairshahzadarain/aiq_test/assets/32112656/dee66880-44c1-41be-bb1b-644167f8093e)
-![top-selling products or customers](https://github.com/zubairshahzadarain/aiq_test/assets/32112656/d09dd4a8-895b-48bd-a2b4-7c937c73fc11)
-![sales amount per customer](https://github.com/zubairshahzadarain/aiq_test/assets/32112656/c635622e-c771-452c-878e-0e268f20bf9c)
-![Calculate average sales amount per weather condition](https://github.com/zubairshahzadarain/aiq_test/assets/32112656/f5b936b8-5591-4116-94ca-9f098d6d3595)
-![Analyze sales trends over time](https://github.com/zubairshahzadarain/aiq_test/assets/32112656/e2a509ed-b413-40a5-a783-cc756c5306d1)
+![total sales amount per addresscity](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/total%20sales%20amount%20per%20addresscity.png)
+![top-selling products](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/top-selling%20products.png)
+![top-selling customers](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/top-selling%20products%20or%20customers.png)
+![sales amount per customer](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/sales%20amount%20per%20customer.png)
+![Calculate average sales amount per weather condition](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Calculate%20average%20sales%20amount%20per%20weather%20condition.png)
+![Analyze sales trends over time](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Analyze%20sales%20trends%20over%20time.png)
 
 ## DATABSE SChema
 * Sales_info
@@ -234,4 +266,45 @@ CREATE TABLE `user_Location_info` (
   `user_info_table_id` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
-
+* merged_sale_user__weather_data (with modified columns databse like Datetime etc)
+```
+CREATE TABLE `merged_sale_user__weather_data` (
+  `index` bigint DEFAULT NULL,
+  `order_id` bigint DEFAULT NULL,
+  `customer_id` bigint DEFAULT NULL,
+  `product_id` bigint DEFAULT NULL,
+  `quantity` bigint DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `order_date` datetime DEFAULT NULL,
+  `weather_id` bigint DEFAULT NULL,
+  `weather_main` text,
+  `weather_description` text,
+  `weather_icon` text,
+  `temp` double DEFAULT NULL,
+  `feels_like` double DEFAULT NULL,
+  `temp_min` double DEFAULT NULL,
+  `temp_max` double DEFAULT NULL,
+  `pressure` bigint DEFAULT NULL,
+  `humidity` bigint DEFAULT NULL,
+  `visibility` bigint DEFAULT NULL,
+  `wind_speed` double DEFAULT NULL,
+  `wind_deg` bigint DEFAULT NULL,
+  `cloudiness` bigint DEFAULT NULL,
+  `user_info_table_id` bigint DEFAULT NULL,
+  `id` bigint DEFAULT NULL,
+  `name` text,
+  `username` text,
+  `email` text,
+  `phone` text,
+  `website` text,
+  `address.street` text,
+  `address.suite` text,
+  `address.city` text,
+  `address.zipcode` text,
+  `address.geo.lat` text,
+  `address.geo.lng` text,
+  `company.name` text,
+  `company.catchPhrase` text,
+  `company.bs` text
+)
+```
