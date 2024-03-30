@@ -1,0 +1,36 @@
+version: "3"
+services:
+  mysqldb:
+      image: mysql:8.3.0
+      environment:
+        MYSQL_ROOT_PASSWORD: testaiq123
+        MYSQL_DATABASE: airflow_db
+        # MYSQL_DATABASE: aiq_db
+      volumes:
+        - ./db_init.sql:/docker-entrypoint-initdb.d/db_init.sql
+      container_name: mysql_container_test
+      ports:
+        - "3306:3306"
+      networks:
+        - backend
+  airflow:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: myairflow
+    ports:
+      - "5001:5001"
+    environment:
+      - LOAD_EX=YES
+      - EXECUTOR=LocalExecutor
+    volumes:
+      - ./dags1/:/opt/airflow/dags
+      - ./airflow.cfg:/opt/airflow/airflow.cfg
+    networks:
+      - backend
+    restart: always
+    depends_on:
+      - mysqldb
+networks:
+  backend:
+    driver: "bridge"
