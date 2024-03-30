@@ -13,11 +13,13 @@ As  i have done these things in our task
       
 ### My understanding with data .
 as we know, we have csv that contains  sale related info like product id and customer id and order no etc...   and from JSONPlaceholder api we have user data (id, addres,lat,long etc).
+
 later for analysis  purpose  we can join the data  base on customer_id from sale_info table and id from user table  we  can take .
-eacher user conatins  lat long .  we   did  api hit to OpenWeatherMap  to get weather detail .  and append to each user..
+each user conatins  lat long .  we   did  api hit to OpenWeatherMap  to get weather detail .  and append to each user..
+
 Note : at the end of doc  i have given   Schema of databse.
  ### technology selection.
-we  have lots  of tools and techniques  to perform this task .  we can suggest   solution  base current  situation in organization like budget , resources or time frame and importace  of task .
+we  have lots  of tools and techniques  to perform this task .  we can suggest   solution  base current  situation in organization like budget , resources or time frame and importance  of task .
 to perfrom this task we  can use cloud soltuion azure  like data factory  kind of stuff ..  or tools  like  SSIS  packages or  pentaho ETL  tool  ..
 
 * my solution
