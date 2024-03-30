@@ -66,7 +66,7 @@ it will be like this
 * password :  admin@123
 
 in dag1  folder there is one file named sales_dag.py ..(airflow dag)   this pipeline that  is given in task ..
-i have created dags in this file and schedule  daily bases
+i have created dags in this file and schedule  daily bases..   you can triger  also from daskboard  of airflow
 
 ![Pipeline_detail_view](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/pipeline_detail.png)
 
