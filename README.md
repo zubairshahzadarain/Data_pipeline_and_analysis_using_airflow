@@ -12,13 +12,15 @@ I have completed the following tasks in our project
     * perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and creating visualization
       
 ### My understanding with data .
-as we know, we have csv that contains  sale related info like product id and customer id and order no etc...   and from JSONPlaceholder api we have user data (id, addres,lat,long etc).
+As we know, we have csv that contains  sale related info like product id and customer id and order no etc...   and from JSONPlaceholder api we have user data (id, addres,lat,long etc).
 
 later for analysis  purpose  we can join the data  base on customer_id from sale_info table and id from user table  we  can take .
 each user conatins  lat long .  we   did  api hit to OpenWeatherMap  to get weather detail .  and append to each user..
 
+at the end we will join all data in one dataframe  and then will perform  data manipulation then save to database as in staging table.   then will use perform calculation that mention in task and we will save to database .. later power bi or other tool or using python we can do visualization. 
+
 Note : at the end of doc  i have given   Schema of databse.
- ### technology selection.
+ ### Technology selection.
 we  have lots  of tools and techniques  to perform this task .  we can suggest   solution  base current  situation in organization like budget , resources or time frame and importance  of task .
 to perfrom this task we  can use cloud soltuion azure  like data factory  kind of stuff ..  or tools  like  SSIS  packages or  pentaho ETL  tool  ..
 
@@ -55,12 +57,12 @@ Before getting started, ensure you have the following installed on your system:
 * requirements txt 
 * Start sh (airflow startup configuration)
 ## how to run project 
-   after installation of docker 
+   After installation of docker 
    Clone then repo  and  navigate to project folder and run command
    
 * docker-compose --verbose up
 
-#### how  it  will work .
+#### how  it  will work  .
  when you wil run docker-compose  it  will create two container one for mysql databse and other for airflow.
 and base on docker compose file , files (like python pipline code and csv file)  from dags1 folder   will   be mount to airflow container .
 and after sometime airflow server start on   http://localhost:5001/
