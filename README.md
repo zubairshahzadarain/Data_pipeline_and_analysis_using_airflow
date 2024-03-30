@@ -6,9 +6,11 @@ As  i have done these things in our task
    * Data Transformation (JSONPlaceholder API - /users)
    * Data Transformation (OpenWeatherMap API)
    * then Saving transformed data  to relational database
-* created jupyter notebook thatutilizes 
+   * then perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and saving to results tables .. alter we  can display on dasboard using power BI  or other tools
+* created jupyter notebook  for visualization purpose ... 
     * Data Manipulation and Aggregations
-    * perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)
+    * perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and creating visualization
+      
 ### My understanding with data .
 as we know, we have csv that contains  sale related info like product id and customer id and order no etc...   and from JSONPlaceholder api we have user data (id, addres,lat,long etc).
 later for analysis  purpose  we can join the data base  on customer id from sale_info table and from user table  we  can take .
