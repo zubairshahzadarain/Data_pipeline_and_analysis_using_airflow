@@ -22,12 +22,13 @@ Note : at the end of doc  i have given   Schema of databse.
 we  have lots  of tools and techniques  to perform this task .  we can suggest   solution  base current  situation in organization like budget , resources or time frame and importance  of task .
 to perfrom this task we  can use cloud soltuion azure  like data factory  kind of stuff ..  or tools  like  SSIS  packages or  pentaho ETL  tool  ..
 
-* my solution
+#### My solution
+  
 i have  choose  airflow tool as Orchestration purpose and we will develop python pipline  and we will deploy  on airlfow . as we know airflow is open source . secure and have lots  of support from community. it  also support if we  are moving to big data setup .. airflow supports  spark and queue  services also .
  and later we can used  **kubernetes cluster  also to process our pipeline**. when pipeline will finish it will be released  the resources automatically .
 
-right now i our task i have  use docker  , airflow and mysql and python (  pandas , requests ,SQLAlchemy and mysql-connector-python library )
-Since the dataset is relatively small (1000 records), I have used pandas DataFrame for data processing. However, for larger datasets, we could consider leveraging Spark for distributed data processing."
+right now in our task i have  use docker  , airflow and mysql and python (  pandas , requests ,SQLAlchemy and mysql-connector-python library )
+Since the dataset is relatively small (1000 records), I have used pandas DataFrame for data processing. However, for larger datasets, we could consider leveraging Spark  dataframes for distributed data processing."
  
 ## (Airflow Setup with MySQL in Docker using Docker Compose For Pipeline  Orchestration purpse or deployment)
 
@@ -54,12 +55,14 @@ Before getting started, ensure you have the following installed on your system:
 * requirements txt 
 * Start sh (airflow startup configuration)
 ## how to run project 
-   after installation of docker  ..  navigate to project folder and run command
+   after installation of docker 
+   Clone then repo  and  navigate to project folder and run command
+   
 * docker-compose --verbose up
 
-###### how  it  will work .
+#### how  it  will work .
  when you wil run docker-compose  it  will create two container one for mysql databse and other for airflow.
-and base on docker compose file , files   from dags1  from will   be mount to airflow container .
+and base on docker compose file , files (like python pipline code and csv file)  from dags1 folder   will   be mount to airflow container .
 and after sometime airflow server start on   http://localhost:5001/
 it will be like this 
 
@@ -68,8 +71,12 @@ it will be like this
 * username:  admin
 * password :  admin@123
 
-in dag1  folder there is one file named sales_dag.py ..(airflow dag)   this pipeline that  is given in task ..
-i have created dags in this file and schedule  daily bases..   you can triger  also from daskboard  of airflow
+in dag1  folder there is one file named sales_dag_pipeline.py ..(airflow dag)   this is  pipeline that  is given in the  task ..
+this pipeline is performce the action that required like exraction of data , tranformation and agregation of data then saving to db.
+
+i have created dags in this file and schedule  daily bases..   you can triger  also from daskboard  of airflow.
+
+note:  in ariflow we call  sales_dag_pipeline.py   as  dag.
 
 ![Pipeline_detail_view](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/pipeline_detail.png)
 
