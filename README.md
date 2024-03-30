@@ -71,6 +71,7 @@ i have created dags in this file and schedule  daily bases..   you can triger  a
 ![Pipeline_detail_view](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/pipeline_detail.png)
 
  dags1/sales_dag_pipeline.py
+i have explain step in the code using commnet
 ```
 # Function to fetch weather data
 def fetch_weather_data(lat, lng):
