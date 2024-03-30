@@ -6,15 +6,16 @@ As  i have done these things in our task
    * Data Transformation (JSONPlaceholder API - /users)
    * Data Transformation (OpenWeatherMap API)
    * then Saving transformed data  to relational database
-   * then perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and saving to results tables .. alter we  can display on dasboard using power BI  or other tools
+   * then perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and saving to results tables .. later we  can display on dasboard using power BI  or other tools
 * created jupyter notebook  for visualization purpose ... 
     * Data Manipulation and Aggregations
     * perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and creating visualization
       
 ### My understanding with data .
 as we know, we have csv that contains  sale related info like product id and customer id and order no etc...   and from JSONPlaceholder api we have user data (id, addres,lat,long etc).
-later for analysis  purpose  we can join the data base  on customer id from sale_info table and from user table  we  can take .
+later for analysis  purpose  we can join the data  base on customer_id from sale_info table and id from user table  we  can take .
 eacher user conatins  lat long .  we   did  api hit to OpenWeatherMap  to get weather detail .  and append to each user..
+Note : at the end of doc  i have given   Schema of databse.
  ### technology selection.
 we  have lots  of tools and techniques  to perform this task .  we can suggest   solution  base current  situation in organization like budget , resources or time frame and importace  of task .
 to perfrom this task we  can use cloud soltuion azure  like data factory  kind of stuff ..  or tools  like  SSIS  packages or  pentaho ETL  tool  ..
@@ -33,7 +34,7 @@ This repository provides a Docker Compose setup for running Apache Airflow with 
 #### Prerequisites
 Before getting started, ensure you have the following installed on your system:
 
-* Docker Engine: Install Docker
+* Docker Engine: Install Docker ( i have testing Docker version 20.10.21, build baeda1f  and Docker version 24.0.5, build 24.0.5-0ubuntu1~22.04.1)
 * Docker Compose: Install Docker Compose
 *  make sure port 3306 for mysql and port  5001 for ariflow is free 
 
