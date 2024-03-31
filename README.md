@@ -191,7 +191,8 @@ on st.customer_id=t2.id""", con=engine)
         agregat_sale_user__weather_data['order_date'] = pd.to_datetime(agregat_sale_user__weather_data['order_date'])
         sales_trends_over_time = agregat_sale_user__weather_data.groupby('order_date')['price'].sum().reset_index()
         sales_trends_over_time.to_sql(name='results_sales_trends_over_time', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
-        # Calculate average sales amount per weather condition  and  save to db
+        
+########## Calculate average sales amount per weather condition  and  save to db
         average_sales_per_weather = agregat_sale_user__weather_data.groupby('weather_main')['price'].mean().reset_index()
         average_sales_per_weather.to_sql(name='results_average_sales_per_weather', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
 
