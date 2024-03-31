@@ -91,7 +91,7 @@ i have explain step in the code using commnet
 ```
 # Function to fetch weather data
 def fetch_weather_data(lat, lng):
-    api_key = '8c4fb6a66535c79932fe63363604bdf6'
+    api_key = ''
     url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lng}&appid={api_key}'
     try:
       response = requests.get(url)
