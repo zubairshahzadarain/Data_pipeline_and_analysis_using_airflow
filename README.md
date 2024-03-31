@@ -32,7 +32,7 @@ to perfrom this task we  can use cloud soltuion azure  like data factory  kind o
 i have  choose  airflow tool as Orchestration purpose and we will develop python pipline  and we will deploy  on airlfow . as we know airflow is open source . secure and have lots  of support from community. it  also support if we  are moving to big data setup .. airflow supports  spark and queue  services also .
  and later we can used  **kubernetes cluster  also to process our pipeline**. when pipeline will finish it will be released  the resources automatically .
 
- we can do use schedular to run python pipeline. but when we have lots  piplines  in big infrastrure then we some proper 
+ we can  use schedular also to run python pipeline. but when we have lots  piplines  in big infrastrure then we some proper 
  Orchestrater . tracker everythning with porper logs.
 
 right now in our task i have  use docker  , airflow and mysql and python (  pandas , requests ,SQLAlchemy and mysql-connector-python library )
