@@ -1,16 +1,16 @@
 # AIQ Sales Data Pipeline
 
 I have completed the following tasks in our project
-##### Creating pipeline that utilizes 
+* ##### Creating pipeline that utilizes 
    * Sales data CSV file
    * Data Transformation (JSONPlaceholder API - /users)
    * Data Transformation (OpenWeatherMap API)
    * then  Saving above transformed data  to relational database
-   * then perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and * saving to results tables ..
+   * then perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and  saving to results tables ..
 
     later we  can display on dasboard using power BI  or other tools
 
-###### created jupyter notebook  for visualization purpose ... 
+* ##### created jupyter notebook  for visualization purpose ... 
     * Data Manipulation and Aggregations
     * perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and creating visualization
       
