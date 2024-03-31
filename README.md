@@ -67,7 +67,7 @@ Before getting started, ensure you have the following installed on your system:
 
 #### how  it  will work  .
  when you wil run docker-compose  it  will create two container one for mysql databse and other for airflow.
-and base on docker compose file , files (like python pipline code and csv file)  from dags1 folder   will   be mount to airflow container .
+and base on docker compose file , files (like python pipline code and csv file)  from dags1 folder   will   be mount to airflow container .  (later in production we can use git   and init container and sidecar container conception to pushlish piplines)
 and after sometime airflow server start on   http://localhost:5001/
 it will be like this 
 #### Runing Container
