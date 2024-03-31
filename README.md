@@ -139,6 +139,7 @@ def process_data():
         #########db connection 
         print("zubair")
         engine = create_engine(f"mysql+mysqlconnector://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}/{DB_CONFIG['database']}")
+     #########  user data transformation   
         users_data=fetch_customer_data()
         user_info = pd.json_normalize(users_data)
         user_info.to_sql(name='user_info', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
