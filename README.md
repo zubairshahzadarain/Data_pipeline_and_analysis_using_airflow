@@ -223,7 +223,7 @@ process_data_task
 ### visualizations to present the insights derived from the data.
 in  root  folder there is  one jupyter notebook file (aiq_visualization.ipynb) .. (https://github.com/zubairshahzadarain/aiq_test/blob/master/aiq_visualization.ipynb)
 
-###to run this file you need jupyter notebook and db connect to mysql  that is runing in container ..
+To run this file you need jupyter notebook and db connect to mysql  that is runing in container ..
 in this  file i  did  stuff like 
 tranformation and aggregations or manipulations based on the data  adn visualization. 
 
