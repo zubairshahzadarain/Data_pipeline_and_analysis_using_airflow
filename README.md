@@ -150,20 +150,21 @@ def process_data():
 
         print("proceeing userfinfo2222")
         Locattion_info_array=[]
+#########   tranformation and aggregations or manipulations based on the location_ weather  data  
         pool = Pool(5)
         for index, row in user_info.iterrows():
             Locattion_info_array.append(pool.apply(process_weather, args=(index+1, row)))
             print(index)
         pool.close()
         pool.join()
-        Locattion_info = pd.DataFrame([info for info in Locattion_info_array if info is not None])
-        print(Locattion_info)
-        Locattion_info.to_sql(name='user_Location_info', con=engine, index=False, if_exists='replace', method='multi', chunksize=1000)
+        user_Locattion_weather_info = pd.DataFrame([info for info in Locattion_info_array if info is not None])
+        print(user_Locattion_weather_info)
+        user_Locattion_weather_info.to_sql(name='user_Locattion_weather_info', con=engine, index=False, if_exists='replace', method='multi', chunksize=1000)
                 time.sleep(2)
 
  ######### performing the  agregation and fixing columns datatype ............Data Manipulation and Aggregations
         agregat_sale_user__weather_data= pd.read_sql("""SELECT  st.*,t1.*,t2.*
-FROM  user_Location_info  as t1 RIGHT join user_info as t2
+FROM  user_Locattion_weather_info  as t1 RIGHT join user_info as t2
 on t1.user_info_table_id= t2.id
 join Sales_info  st 
 on st.customer_id=t2.id""", con=engine)
@@ -227,7 +228,8 @@ in  root  folder there is  one jupyter notebook file (aiq_visualization.ipynb) .
 
 To run this file you need jupyter notebook and db connect to mysql  that is runing in container ..
 in this  file i  did  stuff like 
-tranformation and aggregations or manipulations based on the data  adn visualization. 
+load  the data from results  tables and created  virualtazion of  data . 
+. 
 
 * Calculate total sales amount per customer.
 * Determine the average order quantity per product.
@@ -286,9 +288,9 @@ CREATE TABLE `user_info` (
 ) ;
 ```
 
-#### user_Location_info
+#### user_Locattion_weather_info
 ```
-CREATE TABLE `user_Location_info` (
+CREATE TABLE `user_Locattion_weather_info` (
   `weather_id` bigint DEFAULT NULL,
   `weather_main` text,
   `weather_description` text,

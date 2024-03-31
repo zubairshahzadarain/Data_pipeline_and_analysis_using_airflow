@@ -57,6 +57,7 @@ def process_data():
         #db connection 
         print("zubair")
         engine = create_engine(f"mysql+mysqlconnector://{DB_CONFIG['user']}:{DB_CONFIG['password']}@{DB_CONFIG['host']}/{DB_CONFIG['database']}")
+        #########  user data transformation   
         users_data=fetch_customer_data()
         user_info = pd.json_normalize(users_data)
         user_info.to_sql(name='user_info', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
@@ -73,13 +74,13 @@ def process_data():
             print(index)
         pool.close()
         pool.join()
-        Locattion_info = pd.DataFrame([info for info in Locattion_info_array if info is not None])
-        print(Locattion_info)
-        Locattion_info.to_sql(name='user_Location_info', con=engine, index=False, if_exists='replace', method='multi', chunksize=1000)
+        user_Locattion_weather_info = pd.DataFrame([info for info in Locattion_info_array if info is not None])
+        print(user_Locattion_weather_info)
+        user_Locattion_weather_info.to_sql(name='user_Locattion_weather_info', con=engine, index=False, if_exists='replace', method='multi', chunksize=1000)
         time.sleep(2)
         #performing the  agregation and fixing columns datatype ............Data Manipulation and Aggregations
         agregat_sale_user__weather_data= pd.read_sql("""SELECT  st.*,t1.*,t2.*
-FROM  user_Location_info  as t1 RIGHT join user_info as t2
+FROM  user_Locattion_weather_info  as t1 RIGHT join user_info as t2
 on t1.user_info_table_id= t2.id
 join Sales_info  st 
 on st.customer_id=t2.id""", con=engine)
