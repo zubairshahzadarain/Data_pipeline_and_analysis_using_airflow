@@ -5,7 +5,7 @@ I have completed the following tasks in our project
    * Sales data CSV file
    * Data Transformation (JSONPlaceholder API - /users)
    * Data Transformation (OpenWeatherMap API)
-   * then  Saving above transformed data  to relational database
+   * Data Manipulation and  Aggregations and   Saving above transformed data  to relational database .. 
    * then perfoming some calculationg as mention task like (calculate total sales amount per customer ,top-selling products ,Analyze sales trends over time)  and  saving to results tables ..
 
     later we  can display on dasboard using power BI  or other tools
