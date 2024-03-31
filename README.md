@@ -240,7 +240,11 @@ condition).
 ![Analyze sales trends over time](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Analyze%20sales%20trends%20over%20time.png)
 
 ## DATABSE SChema
-* Sales_info
+* tables overview 
+![Analyze sales trends over time](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/databasetables.png)
+
+
+### Sales_info
 ```
 CREATE TABLE `Sales_info` (
   `index` bigint DEFAULT NULL,
@@ -254,7 +258,7 @@ CREATE TABLE `Sales_info` (
 );
 ```
 
-* user_info
+### user_info
  ```
 CREATE TABLE `user_info` (
   `id` bigint DEFAULT NULL,
@@ -275,7 +279,7 @@ CREATE TABLE `user_info` (
 ) ;
 ```
 
-* user_Location_info
+### user_Location_info
 ```
 CREATE TABLE `user_Location_info` (
   `weather_id` bigint DEFAULT NULL,
@@ -295,7 +299,7 @@ CREATE TABLE `user_Location_info` (
   `user_info_table_id` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
-* merged_sale_user__weather_data (with modified columns databse like Datetime etc)
+### merged_sale_user__weather_data (with modified columns databse like Datetime etc)
 ```
 CREATE TABLE `merged_sale_user__weather_data` (
   `index` bigint DEFAULT NULL,
