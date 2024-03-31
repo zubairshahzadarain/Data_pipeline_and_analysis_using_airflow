@@ -233,6 +233,9 @@ tranformation and aggregations or manipulations based on the data  adn visualiza
 * Analyze sales trends over time (e.g., monthly or quarterly sales).
 * Include weather data in the analysis (e.g., average sales amount per weather
 condition).
+
+these  are following  visualizations.
+
 ![total sales amount per addresscity](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/total%20sales%20amount%20per%20addresscity.png)
 ![top-selling products](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/top-selling%20products.png)
 ![top-selling customers](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/top-selling%20products%20or%20customers.png)
