@@ -349,10 +349,47 @@ CREATE TABLE `merged_sale_user__weather_data` (
 ```
 
 # REsults tables schema ... like top saling products or customer ,,  analysis of trend etc
+i have created this later on if  want to show on dashboard  so BI  system and directly take from this tables ..
 
 * results_average_order_quantity_per_product
 ```
-CREATE TABLE `results_average_order_quantity_per_product` (
-  `product_id` bigint DEFAULT NULL,
-  `quantity` double DEFAULT NULL
-)
+Tables_name                                     columns_names   datatype       
+results_average_order_quantity_per_product	product_id	b'bigint'
+results_average_order_quantity_per_product	quantity	b'double'
+```
+* results_average_sales_per_weather
+```
+Tables_name                            columns_names   datatype  
+results_average_sales_per_weather	weather_main	b'text'
+results_average_sales_per_weather	price	b'double'
+```
+* results_sales_trends_over_time
+```
+Tables_name                    columns_names    datatype  
+results_sales_trends_over_time	order_date	b'datetime'
+results_sales_trends_over_time	price	b'double'
+```
+* results_top_selling_customers
+```
+Tables_name                  columns_names    datatype  
+results_top_selling_customers	name	b'text'
+results_top_selling_customers	price	b'double'
+```
+* results_top_selling_products
+```
+Tables_name                    columns_names    datatype  
+results_top_selling_products	product_id	b'bigint'
+results_top_selling_products	quantity	b'bigint'
+```
+* results_total_sales_per_address_city
+```
+Tables_name                          columns_names    datatype  
+results_total_sales_per_address_city	address.city	b'text'
+results_total_sales_per_address_city	price	b'double'
+```
+* results_total_sales_per_customer
+```
+Tables_name                    columns_names    datatype  
+results_total_sales_per_customer	name	b'text'
+results_total_sales_per_customer	price	b'double'
+```
