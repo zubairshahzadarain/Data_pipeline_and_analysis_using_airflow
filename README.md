@@ -222,9 +222,10 @@ process_data_task
 
 ### visualizations to present the insights derived from the data.
 in  root  folder there is  one jupyter notebook file (aiq_visualization.ipynb) .. (https://github.com/zubairshahzadarain/aiq_test/blob/master/aiq_visualization.ipynb)
+
 ###to run this file you need jupyter notebook and db connect to mysql  that is runing in container ..
-i that file did  stuff like 
-tranformation and aggregations or manipulations based on the data. 
+in this  file i  did  stuff like 
+tranformation and aggregations or manipulations based on the data  adn visualization. 
 
 * Calculate total sales amount per customer.
 * Determine the average order quantity per product.
@@ -239,12 +240,13 @@ condition).
 ![Calculate average sales amount per weather condition](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Calculate%20average%20sales%20amount%20per%20weather%20condition.png)
 ![Analyze sales trends over time](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Analyze%20sales%20trends%20over%20time.png)
 
+
 ## DATABSE SChema
 * tables overview 
 ![Analyze sales trends over time](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/databasetables.png)
 
 
-### Sales_info
+#### Sales_info
 ```
 CREATE TABLE `Sales_info` (
   `index` bigint DEFAULT NULL,
@@ -258,7 +260,7 @@ CREATE TABLE `Sales_info` (
 );
 ```
 
-### user_info
+#### user_info
  ```
 CREATE TABLE `user_info` (
   `id` bigint DEFAULT NULL,
@@ -279,7 +281,7 @@ CREATE TABLE `user_info` (
 ) ;
 ```
 
-### user_Location_info
+#### user_Location_info
 ```
 CREATE TABLE `user_Location_info` (
   `weather_id` bigint DEFAULT NULL,
@@ -299,7 +301,7 @@ CREATE TABLE `user_Location_info` (
   `user_info_table_id` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
-### merged_sale_user__weather_data (with modified columns databse like Datetime etc)
+#### merged_sale_user__weather_data (with modified columns databse like Datetime etc)
 ```
 CREATE TABLE `merged_sale_user__weather_data` (
   `index` bigint DEFAULT NULL,
