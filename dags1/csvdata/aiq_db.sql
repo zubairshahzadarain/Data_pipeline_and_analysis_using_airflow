@@ -45,13 +45,13 @@ INSERT INTO `Sales_info` VALUES (0,2334,5,40,3,35.6,'2022-06-21'),(1,6228,8,13,7
 UNLOCK TABLES;
 
 --
--- Table structure for table `user_Location_info`
+-- Table structure for table `user_Locattion_weather_info`
 --
 
-DROP TABLE IF EXISTS `user_Location_info`;
+DROP TABLE IF EXISTS `user_Locattion_weather_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_Location_info` (
+CREATE TABLE `user_Locattion_weather_info` (
   `weather_id` bigint DEFAULT NULL,
   `weather_main` text,
   `weather_description` text,
@@ -71,13 +71,13 @@ CREATE TABLE `user_Location_info` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_Location_info`
+-- Dumping data for table `user_Locattion_weather_info`
 --
 
-LOCK TABLES `user_Location_info` WRITE;
-/*!40000 ALTER TABLE `user_Location_info` DISABLE KEYS */;
-INSERT INTO `user_Location_info` VALUES (803,'Clouds','broken clouds','04n',289.74,289.47,289.74,289.74,1026,77,10000,2.76,172,82,1),(803,'Clouds','broken clouds','04n',286.06,285.63,286.06,286.06,1016,85,10000,10.56,331,62,2),(802,'Clouds','scattered clouds','03n',256.93,249.93,256.93,256.93,976,97,9404,4.9,157,40,3),(801,'Clouds','few clouds','02d',292.91,293.27,292.91,292.91,1025,89,10000,7.98,152,20,4),(800,'Clear','clear sky','01n',294.65,295.02,294.65,294.65,1019,83,10000,7.21,43,0,5),(802,'Clouds','scattered clouds','03n',246.76,239.76,246.76,246.76,980,49,10000,4.17,85,28,6),(800,'Clear','clear sky','01n',292.22,290.6,292.22,292.22,1016,16,10000,4.77,65,0,7),(802,'Clouds','scattered clouds','03d',299.81,299.81,299.81,299.81,1012,62,10000,4.83,75,38,8),(800,'Clear','clear sky','01d',296.56,297.07,296.56,296.56,1022,81,10000,6.94,147,10,9),(500,'Rain','light rain','10n',292.01,292.22,292.01,292.01,1013,87,10000,10.63,346,100,10);
-/*!40000 ALTER TABLE `user_Location_info` ENABLE KEYS */;
+LOCK TABLES `user_Locattion_weather_info` WRITE;
+/*!40000 ALTER TABLE `user_Locattion_weather_info` DISABLE KEYS */;
+INSERT INTO `user_Locattion_weather_info` VALUES (803,'Clouds','broken clouds','04n',289.74,289.47,289.74,289.74,1026,77,10000,2.76,172,82,1),(803,'Clouds','broken clouds','04n',286.06,285.63,286.06,286.06,1016,85,10000,10.56,331,62,2),(802,'Clouds','scattered clouds','03n',256.93,249.93,256.93,256.93,976,97,9404,4.9,157,40,3),(801,'Clouds','few clouds','02d',292.91,293.27,292.91,292.91,1025,89,10000,7.98,152,20,4),(800,'Clear','clear sky','01n',294.65,295.02,294.65,294.65,1019,83,10000,7.21,43,0,5),(802,'Clouds','scattered clouds','03n',246.76,239.76,246.76,246.76,980,49,10000,4.17,85,28,6),(800,'Clear','clear sky','01n',292.22,290.6,292.22,292.22,1016,16,10000,4.77,65,0,7),(802,'Clouds','scattered clouds','03d',299.81,299.81,299.81,299.81,1012,62,10000,4.83,75,38,8),(800,'Clear','clear sky','01d',296.56,297.07,296.56,296.56,1022,81,10000,6.94,147,10,9),(500,'Rain','light rain','10n',292.01,292.22,292.01,292.01,1013,87,10000,10.63,346,100,10);
+/*!40000 ALTER TABLE `user_Locattion_weather_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
