@@ -84,7 +84,7 @@ on t1.user_info_table_id= t2.id
 join Sales_info  st 
 on st.customer_id=t2.id""", con=engine)
         agregat_sale_user__weather_data['order_date'] = pd.to_datetime(agregat_sale_user__weather_data['order_date'])
-        agregat_sale_user__weather_data.to_sql('merged_sale_user__weather_data', con=engine, if_exists='replace', index=False)
+        agregat_sale_user__weather_data.to_sql('agregat_sale_user__weather_data', con=engine, if_exists='replace', index=False)
 
         # performing further calculations
          # Calculate total sales amount per customer  and  save  to DB
@@ -94,20 +94,20 @@ on st.customer_id=t2.id""", con=engine)
         average_order_quantity_per_product = agregat_sale_user__weather_data.groupby('product_id')['quantity'].mean().reset_index()
         average_order_quantity_per_product.to_sql(name='results_average_order_quantity_per_product', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
         # Identify the top-selling products  and to db
-        top_selling_products = agregat_sale_user__weather_data.groupby('product_id')['quantity'].sum().nlargest(5)
+        top_selling_products = agregat_sale_user__weather_data.groupby('product_id')['quantity'].sum().nlargest(5).reset_index()
         top_selling_products.to_sql(name='results_top_selling_products', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
         # Identify the top-selling  customers  and save to db
-        top_selling_customers = agregat_sale_user__weather_data.groupby('name')['price'].sum().nlargest(5)
+        top_selling_customers = agregat_sale_user__weather_data.groupby('name')['price'].sum().nlargest(5).reset_index()
         top_selling_customers.to_sql(name='results_top_selling_customers', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
-        # Analyze sales trends over order_date  adn save results  to db
+        # saving data to db group by date by price later we can  sales trends over order_date  monlt , quratly
         agregat_sale_user__weather_data['order_date'] = pd.to_datetime(agregat_sale_user__weather_data['order_date'])
-        sales_trends_over_time = agregat_sale_user__weather_data.groupby(agregat_sale_user__weather_data['order_date'].dt.to_period('M'))['price'].sum()
+        sales_trends_over_time = agregat_sale_user__weather_data.groupby('order_date')['price'].sum().reset_index()
         sales_trends_over_time.to_sql(name='results_sales_trends_over_time', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
         # Calculate average sales amount per weather condition  and  save to db
         average_sales_per_weather = agregat_sale_user__weather_data.groupby('weather_main')['price'].mean().reset_index()
         average_sales_per_weather.to_sql(name='results_average_sales_per_weather', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
         # Calculate total sales amount per address.city
-        total_sales_per_address_city = merged_sale_user__weather_data.groupby('address.city')['price'].sum().reset_index()
+        total_sales_per_address_city = agregat_sale_user__weather_data.groupby('address.city')['price'].sum().reset_index()
         total_sales_per_address_city.to_sql(name='results_total_sales_per_address_city', con=engine, if_exists='replace', index=False, method='multi', chunksize=1000)
 
 
