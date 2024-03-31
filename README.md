@@ -242,8 +242,8 @@ these  are following  visualizations.
 ![top-selling customers](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/top-selling%20products%20or%20customers.png)
 ![sales amount per customer](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/sales%20amount%20per%20customer.png)
 ![Calculate average sales amount per weather condition](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Calculate%20average%20sales%20amount%20per%20weather%20condition.png)
-![Analyze sales trends over time Montly](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Analyze%20sales%20trends%20over%20time_monlty.png)
-![Analyze sales trends over time Quartly](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Analyze%20sales%20trends%20over%20time_Quratly_.png)
+![Analyze sales trends over time Montly](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Analyze%20sales%20trends%20over%20time_monthly.png)
+![Analyze sales trends over time Quartly](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Analyze%20sales%20trends%20over%20time_Quratly.png)
 
 ## DATABSE SChema
 * tables overview 
