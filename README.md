@@ -305,9 +305,9 @@ CREATE TABLE `user_Location_info` (
   `user_info_table_id` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
-#### merged_sale_user__weather_data (with modified columns databse like Datetime etc)
+#### agregat_sale_user__weather_data (with modified columns databse like Datetime etc)
 ```
-CREATE TABLE `merged_sale_user__weather_data` (
+CREATE TABLE `agregat_sale_user__weather_data` (
   `index` bigint DEFAULT NULL,
   `order_id` bigint DEFAULT NULL,
   `customer_id` bigint DEFAULT NULL,
