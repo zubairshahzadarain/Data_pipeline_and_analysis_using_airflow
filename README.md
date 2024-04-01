@@ -82,7 +82,7 @@ it will be like this
 #### Airflow Dasboard Login  credential
 * username:  admin
 * password :  admin@123
-### DB credential
+#### DB credential
 when you will run the container autmation it will create db ..  i have create one dag in airflow .
 
     'user': "root",
