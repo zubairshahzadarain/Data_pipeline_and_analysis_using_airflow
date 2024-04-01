@@ -79,7 +79,7 @@ it will be like this
 #### airflow dashboard
 
 ![Screenshot 2024-03-30 at 5 30 37 AM](https://github.com/zubairshahzadarain/aiq_test/blob/main/screen_shots/Pipelines.png)
-#### Login 
+#### Airflow Dasboard Login  credential
 * username:  admin
 * password :  admin@123
 ### DB credential
