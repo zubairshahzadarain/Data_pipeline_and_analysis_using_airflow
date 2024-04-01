@@ -82,7 +82,11 @@ it will be like this
 #### Login 
 * username:  admin
 * password :  admin@123
-
+### DB credential
+    'user': "root",
+    'password': "testaiq123",
+    'database': "aiq_db"  
+    
 in dag1  folder there is one file named sales_dag_pipeline.py ..(airflow dag)   this is  pipeline that  is given in the  task ..
 this pipeline is performce the action that required like exraction of data , tranformation and agregation of data then saving to db.
 
@@ -401,3 +405,5 @@ Tables_name                    columns_names    datatype
 results_total_sales_per_customer	name	b'text'
 results_total_sales_per_customer	price	b'double'
 ```
+
+if there is any query you can conect at zubairshahzadarain@gmail.com
