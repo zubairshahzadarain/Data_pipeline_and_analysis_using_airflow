@@ -83,7 +83,7 @@ it will be like this
 * username:  admin
 * password :  admin@123
 #### DB credential
-when you will run the container autmation it will create db ..  i have create one dag in airflow .
+when you will run the container autmatically it will create db ..  i have create one dag in airflow .
 
     'user': "root",
     'password': "testaiq123",
