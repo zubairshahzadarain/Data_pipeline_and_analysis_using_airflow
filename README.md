@@ -408,4 +408,4 @@ results_total_sales_per_customer	name	b'text'
 results_total_sales_per_customer	price	b'double'
 ```
 
-if there is any query you can conect at zubairshahzadarain@gmail.com
+if there is any query you can conect at zubairshahzadarain@gmail.com ....
