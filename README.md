@@ -45,7 +45,7 @@ This repository provides a Docker Compose setup for running Apache Airflow with 
 #### Prerequisites
 Before getting started, ensure you have the following installed on your system:
 
-* Docker Engine: Install Docker ( i have testing Docker version 20.10.21, build baeda1f  and Docker version 24.0.5, build 24.0.5-0ubuntu1~22.04.1)
+* Docker Engine: Install Docker ( i have tested Docker version 20.10.21, build baeda1f  and Docker version 24.0.5, build 24.0.5-0ubuntu1~22.04.1)
 * Docker Compose: Install Docker Compose
 *  make sure port 3306 for mysql and port  5001 for ariflow is free 
 
@@ -363,7 +363,7 @@ CREATE TABLE `agregat_sale_user__weather_data` (
 ```
 
 # REsults tables schema ... like top saling products or customer ,,  analysis of trend etc
-i have created this later on if  want to show on dashboard  so BI  system and directly take from this tables ..
+i have created thess tables so later on if we  want to show on dashboard  , BI  system and other tools directly take from this tables ..
 
 * results_average_order_quantity_per_product
 ```
