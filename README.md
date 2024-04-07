@@ -47,7 +47,7 @@ Before getting started, ensure you have the following installed on your system:
 
 * Docker Engine: Install Docker ( i have tested Docker version 20.10.21, build baeda1f  and Docker version 24.0.5, build 24.0.5-0ubuntu1~22.04.1)
 * Docker Compose: Install Docker Compose
-*  make sure port 3306 for mysql and port  5001 for ariflow is free 
+*  make sure port 3306 (for mysql) and port  5001 (for ariflow) is free 
 
 #### Reposetory Folder and Files 
 * dags1  (airflow dags  or data piplines )
