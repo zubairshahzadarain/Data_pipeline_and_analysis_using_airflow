@@ -1,4 +1,4 @@
-# AIQ Sales Data Pipeline
+# Sales Data Pipeline
 
 I have completed the following tasks in our project
 * ##### Creating pipeline that utilizes 
